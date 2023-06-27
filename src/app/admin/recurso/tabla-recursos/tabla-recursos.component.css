@@ -1,0 +1,31 @@
+input:disabled, textarea:disabled{
+    border: none;
+    color: black;
+    background: #0000;
+}
+input:disabled{
+    font-weight: 600;
+}
+textarea{
+    resize: none;
+    width: 100%;
+}
+input{
+    text-align: center;
+}
+
+.card-elements .col-1{
+    align-self: center;
+}
+.card-elements .col-5{
+    padding: 15px 10px;
+}
+.card-elements .col-5 button{
+    padding: 3px 10px;
+}
+.card-elements .col-6{
+    padding: 15px;
+}
+.card-elements .col-6 p{
+    margin: 0;
+}

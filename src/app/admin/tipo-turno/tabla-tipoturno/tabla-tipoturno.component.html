@@ -1,0 +1,65 @@
+<div>    
+    <div *ngIf="tiposDeTurno.length>0">
+        <div *ngFor="let t of tiposDeTurno" class="row card-elements">
+            <div class="col-5">
+                <input type="text" name="nombre" id="nombre-{{t.id}}" [value]="t.nombre" [disabled]="t.id!=edicion">
+
+                <button type="button" class="btn btn-dark" id="regDatosTipoTurno" data-toggle="modal" data-target="#DatosTipoTurno" (click)="verDatos(t)"><!--(click)="recursoParaHorario=r"-->
+                    Datos
+                </button>
+
+                <label for="habilitado">Habilitado: <input type="checkbox" name="habilitado" id="habilitado" [(ngModel)]="!t.eliminado" (ngModelChange)="onChange($event, t.id)"></label>
+            </div>
+
+            <div class="col-6">
+                <textarea name="descripcion" id="descripcion-{{t.id}}" cols="30" rows="3" [disabled]="t.id!=edicion">{{t.descripcion}}</textarea>
+                <!--<p>Cantidad de Reservas: 15 <button class="btn btn-info">Mas Info</button></p>-->
+
+
+                <p>Reservas: 15 <button class="btn btn-info btn-informacion btn-icon" (click)="mostrarReservas(t.id)" data-toggle="modal" data-target="#reservas"></button></p>
+            </div>
+
+            <div class="col-1 p-0">
+                <button *ngIf="t.id!=edicion" class="btn btn-warning btn-icon btn-editar" (click)="editar(t.id)"></button>
+                <button *ngIf="t.id==edicion" class="btn btn-danger btn-icon btn-cancelar" (click)="editar(null)"></button>
+                <button *ngIf="t.id==edicion" class="btn btn-success btn-icon btn-save-conf" (click)="guardarDatosTipoTurno(t.id)"></button>
+            </div>
+        </div>
+    </div>
+
+
+    <div *ngIf="1>tiposDeTurno.length">
+        <p>NO HAY TIPOS DE TURNO TODAVÍA</p>
+    </div>
+
+    <app-boton-ver-reservas [reservas]="reservas"></app-boton-ver-reservas>
+
+    <ngx-spinner size="20"></ngx-spinner>
+</div>
+
+
+
+
+
+
+
+
+
+<div class=" modal fade" id="DatosTipoTurno" tabindex="-1" aria-labelledby="DatosTipoTurnoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="DatosTipoTurnoLabel">Datos</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+  
+          <app-datos-tipoturno [tipoTurno]="tipoTurnoParaDatos"></app-datos-tipoturno>
+  
+        </div>
+  
+      </div>
+    </div>
+</div>

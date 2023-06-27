@@ -1,0 +1,35 @@
+#err-cont{
+    background-color: rgb(219, 63, 35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#error{
+    background-color: #FFF;
+    text-align: center;
+    width: 40vw;
+    padding: 80px 10px 40px;
+    box-shadow: 0px 0px 24px -4px rgba(0,0,0,0.45);
+    -webkit-box-shadow: 0px 0px 24px -4px rgba(0,0,0,0.45);
+    -moz-box-shadow: 0px 0px 24px -4px rgba(0,0,0,0.45);
+    position: relative;
+}
+#image-error{
+    position: absolute;
+    top: 0;
+    margin-top: -70px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+#image-error img{
+    filter:drop-shadow(0px 0px 10px rgba(0, 0, 0, .25))
+}
+
+#body-error h2{
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+#body-error p{
+    margin-bottom:30px;
+    padding: 0 20px;
+}

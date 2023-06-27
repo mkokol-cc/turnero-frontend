@@ -1,0 +1,43 @@
+<div class="menu-container">
+
+  <div class="container row w-100 m-0" id="stats">
+    <div class="col card-elements-outline">
+      DATO 1- Reservas Proximos 7 dias
+    </div>
+    <div class="col card-elements-outline">
+      DATO 2- Nuevos Clientes Ultimo Mes
+    </div>
+    <div class="col card-elements-outline">
+      DATO 3- Diferencia de Reservas comparado a la ultima semana - Mejor semana
+    </div>
+    <div class="col card-elements-outline">
+      DATO 4- Recurso Mas Solicitados - Orden Tipos de Turno Mas Solicitados
+    </div>
+  </div>
+
+  <div class="row m-0">
+    
+    <div class="col-8" id="menu-cont-1">
+      <div class="w-100">
+        <app-nuevas-reservas [reservas]="reservas | async"></app-nuevas-reservas>
+      </div>
+      <!--
+      <div class="row">
+        <div class="col-6">
+          GRAFICO 1
+        </div>
+        <div class="col-6">
+          GRAFICO 2
+        </div>
+      </div>
+      -->
+    </div>
+
+  
+    <div class="col-4" id="menu-cont-2">
+      <div class="w-100">
+        <app-clientes [reservas]="reservas | async"></app-clientes><!-- CLIENTES -->
+      </div>
+    </div>
+  
+  </div>

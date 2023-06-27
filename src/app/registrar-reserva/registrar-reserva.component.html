@@ -1,0 +1,103 @@
+<div class="col-md-10 offset-md-1">
+    <!--
+    <h3>Registrar Reserva</h3>
+    -->
+    <form>
+        <div class="form-group row">
+            
+            <div class="col">
+                <label for="tipo-turno">Tipo de Turno:</label>
+                <select class="form-control" id="tipo-turno" [(ngModel)]="tipoTurnoSeleccionado" name="tipo-turno" (ngModelChange)="onSelectChange()" [disabled]="disableInputs">
+                    <option *ngFor="let t of tiposDeTurno" [ngValue]="t">{{t.nombre}}</option>
+                </select>
+            </div>
+
+            <div class="col">
+                <label for="recurso">Recurso:</label>
+                <select class="form-control" id="recurso" [(ngModel)]="asignacionSeleccionada" name="recurso" (change)="onDateChange()" [disabled]="disableInputs">
+                    <option *ngFor="let a of listaAsignacionesSelect" [ngValue]="a">{{a.recurso.nombre}}</option>
+                </select>
+            </div>
+        
+        </div>
+        <div class="form-group row">
+        
+            <div class="col-6">
+                <label for="fecha">Fecha:</label>
+                <input class="form-control" [(ngModel)]="reserva.fecha" type="date" id="fecha" name="fecha" [min]="minDate" (change)="onDateChange()" [disabled]="!asignacionSeleccionada || disableInputs">
+                <!--<div class="row w-100 m-0">
+                    <button class="btn btn-outline-ligth col-2" (click)="decrementDate()">-</button>
+                    <input class="form-control" [(ngModel)]="reserva.fecha" type="date" id="fecha" name="fecha" [min]="minDate" (change)="onDateChange()" [disabled]="!asignacionSeleccionada">
+                    <button class="btn btn-outline-ligth col-2" (click)="incrementDate()">+</button>
+                </div>-->
+            </div>
+
+            <div class="form-group col-6">
+                <label for="select-hora">Hora:</label>
+                <select class="custom-select" id="select-hora" name="select-hora" [(ngModel)]="reserva.hora" [disabled]="!(horariosDisponibles.length>0) || disableInputs" (change)="asignarHora($event.target.value)">
+                    <option *ngFor="let h of horariosDisponibles" [ngValue]="h.hora" [value]="h.hora" [disabled]="!h.disponible">{{h.hora}}</option>
+                </select><!--
+                <div class="input-group">
+                    <div class="input-group-append">
+                        <button class="btn" id="btn-ver-horarios" type="button" (click)="buscarHorariosDisponibles()" [disabled]="!asignacionSeleccionada || !reserva.fecha">Ver</button>
+                    </div>
+                    <select class="custom-select" id="select-hora" name="select-hora" [(ngModel)]="reserva.hora" [disabled]="!(horariosDisponibles.length>0)" (change)="asignarHora($event.target.value)">
+                        <option *ngFor="let h of horariosDisponibles" [ngValue]="h.hora" [value]="h.hora" [disabled]="!h.disponible">{{h.hora}}</option>
+                    </select>
+                </div>-->
+            </div>
+
+        
+        </div>
+        <div class="form-group row">
+
+            <div class="col-12" id="div-form-nota">
+                <label for="nota">Nota(opcional):</label>
+                <textarea class="form-control" [(ngModel)]="reserva.nota" name="nota" id="nota" cols="30" rows="3" [disabled]="disableInputs"></textarea>
+            </div>
+
+            
+            <div class="col">
+                <label for="telefono">Telefono:</label>
+                <input class="form-control" type="tel" name="telefono" id="telefono" [(ngModel)]="reservante.telefono" [disabled]="disableInputs">
+            </div>
+            <div class="form-check col" id="form-tipo-reserva">
+
+                <label for="radioTipoReserva">Tipo Reserva:</label>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioTipoReserva" id="radioIndividual" value="1" [(ngModel)]="opcionReserva" checked [disabled]="disableInputs">
+                    <label class="form-check-label" for="radioIndividual">
+                        Individual
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioTipoReserva" id="radioFijo" value="2" [(ngModel)]="opcionReserva" [disabled]="disableInputs">
+                    <label class="form-check-label" for="radioFijo">
+                        Fijo
+                    </label>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="btn-place">
+            <div>
+                <button *ngIf="!disableInputs" class="btn btn-dark" (click)="siguiente()">Siguiente</button>
+                <button *ngIf="disableInputs" class="btn btn-dark" (click)="habilitarForm()">Editar</button>
+            </div>
+            <div *ngIf="btnPagarSenia">
+                <app-payment [idAsignacion]="asignacionSeleccionada.id"></app-payment>
+                <button *ngIf="admin==1" class="btn btn-success" (click)="guardarReserva()">Sin Seña</button>
+            </div>
+            <div *ngIf="btnConfirmarReserva">
+                <button class="btn btn-success" (click)="guardarReserva()">Registrar Reserva</button>
+            </div>
+        </div>
+
+
+
+    </form>    
+</div>

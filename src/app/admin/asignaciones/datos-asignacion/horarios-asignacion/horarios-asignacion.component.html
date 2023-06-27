@@ -1,0 +1,159 @@
+<div class="container">
+
+
+    
+    <div>
+        <h4>Día Específico</h4>
+        <input type="date" name="fechaEspecifica" id="fechaEspecifica" [(ngModel)]="fecha">
+        <button class="btn btn-primary" (click)="obtenerHorariosEspeciales()">Ver Horario</button>
+        <div *ngFor="let he of horariosEspeciales">
+            <p>{{he.desde}}-{{he.hasta}} <button class="btn btn-danger" (click)="eliminarHorarioEsp(he)">x</button></p>
+        </div>
+        <button class="btn btn-success" (click)="habilitarHorarioEsp=true">+</button>
+
+
+        
+        <div class="row" *ngIf="habilitarHorarioEsp">
+            <div class="form-group col">
+                <label for="horaDesdeEsp">Desde</label>
+                <input type="time" class="form-control" id="horaDesdeEsp" [(ngModel)]="desdeEsp">
+            </div>
+            <div class="form-group col">
+                <label for="horaHastaEsp">Hasta</label>
+                <input type="time" class="form-control" id="horaHastaEsp" [(ngModel)]="hastaEsp">
+            </div>
+            <div class="col">
+                <button class="btn btn-primary" (click)="addHorarioEsp()">Guardar</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    
+    <div>
+
+        <h4>Calendario Semanal</h4>
+        <table class="table table-sm table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Domingo</th>
+                <th scope="col">Lunes</th>
+                <th scope="col">Martes</th>
+                <th scope="col">Miércoles</th>
+                <th scope="col">Jueves</th>
+                <th scope="col">Viernes</th>
+                <th scope="col">Sábado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                    <div *ngFor="let h of horarios">
+                        <p *ngIf="h.dia=='DOMINGO'">
+                            De {{h.desde}} a {{h.hasta}}
+                            <button class="btn btn-danger" (click)="eliminarHorario(h)">x</button>
+                        </p>
+                    </div>
+                    
+                    
+                    <button class="btn btn-success add-horario" (click)="indiceDia=6">+</button>
+                </td>
+                <td>
+                    <div *ngFor="let h of horarios">
+                        <p *ngIf="h.dia=='LUNES'">
+                            De {{h.desde}} a {{h.hasta}}
+                            <button class="btn btn-danger" (click)="eliminarHorario(h)">x</button>
+                        </p>
+                    </div>
+                    
+                    
+                    <button class="btn btn-success add-horario" (click)="indiceDia=0">+</button>
+                </td>
+                <td>
+                    <div *ngFor="let h of horarios">
+                        <p *ngIf="h.dia=='MARTES'">
+                            De {{h.desde}} a {{h.hasta}}
+                            <button class="btn btn-danger" (click)="eliminarHorario(h)">x</button>
+                        </p>
+                    </div>
+                    
+                    
+                    <button class="btn btn-success add-horario" (click)="indiceDia=1">+</button>
+                </td>
+                <td>
+                    <div *ngFor="let h of horarios">
+                        <p *ngIf="h.dia=='MIERCOLES'">
+                            De {{h.desde}} a {{h.hasta}}
+                            <button class="btn btn-danger" (click)="eliminarHorario(h)">x</button>
+                        </p>
+                    </div>
+                    
+                    
+                    <button class="btn btn-success add-horario" (click)="indiceDia=2">+</button>
+                </td>
+                <td>
+                    <div *ngFor="let h of horarios">
+                        <p *ngIf="h.dia=='JUEVES'">
+                            De {{h.desde}} a {{h.hasta}}
+                            <button class="btn btn-danger" (click)="eliminarHorario(h)">x</button>
+                        </p>
+                    </div>
+                    
+                    
+                    <button class="btn btn-success add-horario" (click)="indiceDia=3">+</button>
+                </td>
+                <td>
+                    <div *ngFor="let h of horarios">
+                        <p *ngIf="h.dia=='VIERNES'">
+                            De {{h.desde}} a {{h.hasta}}
+                            <button class="btn btn-danger" (click)="eliminarHorario(h)">x</button>
+                        </p>
+                    </div>
+                    
+                    
+                    <button class="btn btn-success add-horario" (click)="indiceDia=4">+</button>
+                </td>
+                <td>
+                    <div *ngFor="let h of horarios">
+                        <p *ngIf="h.dia=='SABADO'">
+                            De {{h.desde}} a {{h.hasta}}
+                            <button class="btn btn-danger" (click)="eliminarHorario(h)">x</button>
+                        </p>
+                    </div>
+                    
+                    
+                    <button class="btn btn-success add-horario" (click)="indiceDia=5">+</button>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+
+
+
+        <div class="row" *ngIf="indiceDia || indiceDia==0">
+            <div class="col">
+                <h4>{{lista[indiceDia]}}</h4>
+            </div>
+            <div class="form-group col">
+                <label for="horaDesde">Desde</label>
+                <input type="time" class="form-control" id="horaDesde" [(ngModel)]="desde">
+            </div>
+            <div class="form-group col">
+                <label for="horaHasta">Hasta</label>
+                <input type="time" class="form-control" id="horaHasta" [(ngModel)]="hasta">
+            </div>
+            <div class="col">
+                <button class="btn btn-primary" (click)="addHorario()">Guardar</button>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>

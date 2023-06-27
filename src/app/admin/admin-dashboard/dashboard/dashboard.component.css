@@ -1,0 +1,14 @@
+#stats{
+  gap: 15px;
+}
+
+@media screen and (max-width: 800px) {
+  .menu-container {
+    display: block;
+  }
+
+  .menu-container .col{
+    width: 100%;
+  }
+}
+  

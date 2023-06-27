@@ -1,0 +1,106 @@
+<div id="paso1" *ngIf="paso==1">
+<!--ACA VA LA REUTILIZACION DEL SELECT COMBINADO-->
+<app-mostrar-tipo-turno-recursos (buttonClicked)="onButtonClick($event)"></app-mostrar-tipo-turno-recursos>
+<form (ngSubmit)="verHorarios()">
+  <div *ngIf="radio.length>0">
+    <!--SOLO SUS ASIGNACIONES-->
+    <div class="radio">
+      <label *ngFor="let r of radio">
+        <input type="radio" name="opcion" id="{{r.id}}" [value]="r.id" [(ngModel)]="selectedRadio" class="radio-input">
+        {{r.nombre}}
+      </label>
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-text">Fecha específica:</span>
+      <input class="form-control" type="date" name="dia-especifico" id="dia-especifico" [disabled]="!habilitarDiaEsp" [(ngModel)]="diaEspecifico">
+      <input type="checkbox" name="habilitado-dia-esp" id="habilitado-dia-esp" [(ngModel)]="habilitarDiaEsp">
+    </div>
+
+    <button class="btn btn-warning">Ver Horarios</button>
+
+  </div>
+</form>
+<div *ngIf="radio.length==0">
+  No hay ningún Tipo De Turno asignado.
+</div>
+
+</div>
+
+
+<div id="paso2" *ngIf="paso==2">
+
+  <div>
+    <p>Estas Viendo Los Horarios De <b>{{nombreAsignacionSeleccionada}}</b></p>
+    <p *ngIf="habilitarDiaEsp">Para El Día <b>{{diaEspecifico}}</b></p>
+  </div>
+
+  <div *ngIf="habilitarDiaEsp">
+    <app-horario-especial [asignacion]="asigSeleccionada" [fecha]="diaEspecifico"></app-horario-especial>
+  </div>
+  <div *ngIf="!habilitarDiaEsp">
+    <app-horario-comun [asignacion]="asigSeleccionada"></app-horario-comun>
+  </div>
+
+<!--
+<form (ngSubmit)="guardarHorarios()">
+  <form class="form" (ngSubmit)="agregarHorario()">
+    <div class="row" id="form-nuevo-horario">
+      <div class="col-4">
+        <label for="nuevoDesde">Desde</label>
+        <input type="time" [(ngModel)]="nuevoDesde" class="form-control" name="nuevoDesde" id="nuevoDesde">
+      </div>
+
+      <div class="col-4">
+        <label for="nuevoHasta">Hasta</label>
+        <input type="time" [(ngModel)]="nuevoHasta" class="form-control" name="nuevoHasta" id="nuevoHasta">
+      </div>
+
+      <div class="col-3">
+        <label for="nuevoDia">Día</label>
+        <select [(ngModel)]="nuevoDia" class="form-control" name="nuevoDia" id="nuevoDia" [disabled]="habilitarDiaEsp">
+          <option value="LUNES">Lunes</option>
+          <option value="MARTES">Martes</option>
+          <option value="MIÉRCOLES">Miércoles</option>
+          <option value="JUEVES">Jueves</option>
+          <option value="VIERNES">Viernes</option>
+          <option value="SÁBADO">Sábado</option>
+          <option value="DOMINGO">Domingo</option>
+        </select>
+      </div>
+
+      <button class="btn btn-success col-1" id="agregar-horario">+</button>
+    </div>
+  </form>
+  <div *ngFor="let h of horarios" class="input-group">
+    <span class="badge badge-info">{{h.dia}}</span> de <input type="time" [value]="h.desde" class="form-control"> a <input type="time" class="form-control" [value]="h.hasta">
+    <button class="btn btn-danger" (click)="borrarHorario(h)">x</button>
+  </div>
+  <div *ngIf="horarios.length==0 && !habilitarDiaEsp">
+    <p>No Hay Horarios Aún!</p>
+  </div>
+  
+
+  <div *ngIf="horariosEspeciales.length>0">
+    <div *ngIf="horariosEspeciales[0].desde!=null">
+      <div *ngFor="let he of horariosEspeciales" class="input-group">
+        <span class="badge badge-info"></span> de <input type="time" [value]="he.desde" class="form-control"> a <input type="time" class="form-control" [value]="he.hasta">
+        <button class="btn btn-danger" (click)="borrarHorarioEspecial(he)">x</button>
+      </div>
+    </div>
+    <div *ngIf="horariosEspeciales[0].desde==null && horariosEspeciales.length==1">
+      <p>Este Día No Se Trabaja!</p>
+    </div>
+  </div>
+
+  <div *ngIf="horariosEspeciales.length==0">
+    <p>No Hay Horarios Aún!</p>
+  </div>
+
+  <button class="btn btn-danger" (click)="irAlPaso(1)">Volver</button>
+  <button *ngIf="(horarios.length>0 || horariosEspeciales.length>0) && (horarios.length!=horariosEspeciales.length && horariosEspeciales[0].desde!=null)" class="btn btn-secondary">Guardar Horarios</button>
+  <button *ngIf="horariosEspeciales.length==0 && habilitarDiaEsp" class="btn btn-danger" (click)="guardarCerrado()">Cerrado</button>
+  
+</form>
+-->
+</div>

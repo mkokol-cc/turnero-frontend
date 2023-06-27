@@ -1,0 +1,18 @@
+<div class="vw-100 vh-100" id="success-cont">
+    <div id="success">
+        <div id="image-success">
+            <img src="src\assets\icons\014-cancelar.png" alt="SUCCESS">
+        </div>
+        <div id="body-success">
+            <h2>PAGO EXITOSO</h2>
+            <div *ngIf="err==0">
+                <p>MercadoPago aceptó tu pago, tu numero de reserva es el: {{reservaGuardada.id}}</p>
+            </div>
+            <div *ngIf="err==1" class="internal-error">
+                <p>Se recibio el pago de la seña pero hubo un error al registrar tu reserva.</p>
+                <p>Por favor comunicate con el Administrador, Disculpe las molestias.</p>
+            </div>
+            <button class="btn btn-success" (click)="volverAlSitio()"><i class="bi bi-arrow-left"></i> Volver al Sitio</button>
+        </div>
+    </div>
+</div>

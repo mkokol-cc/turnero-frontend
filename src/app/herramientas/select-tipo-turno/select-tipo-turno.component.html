@@ -1,0 +1,4 @@
+<select class="form-control" id="select-tipoTurno" (change)="onSelect($event.target.value)">
+    <option>Selecciona una opción</option>
+    <option *ngFor="let tipoTurno of listaTipoTurno" value="{{tipoTurno.id}}">{{tipoTurno.nombre}}</option>
+</select>

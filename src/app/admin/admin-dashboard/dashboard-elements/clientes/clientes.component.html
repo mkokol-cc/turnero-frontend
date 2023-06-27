@@ -1,0 +1,23 @@
+<h2>CLIENTES</h2>
+<div>
+    <div>
+        <input type="text" [(ngModel)]="filter" placeholder="Filtrar" (keyup)="handleInputChange($event)">
+    </div>
+    <div *ngFor="let d of divs | paginate: { id: 'pagination-clients',itemsPerPage: 3, currentPage: p }" class="row m-0 card-elements-2 card-clientes">
+        <div class="col-9">
+            <div class="row w-100 m-0">
+                <p class="m-0">{{d.reservante.telefono}}<!--<button class="btn" (clikc)="masInfoReservante(d.reservante)">Mas Info</button>--></p>
+            </div>
+            <div class="row w-100 m-0">
+                <p class="m-0">Reservas: {{d.cantidad}} <button class="btn btn-info btn-icon btn-informacion" (click)="mostrarReservas(d.reservante.id)" data-toggle="modal" data-target="#reservas"></button></p><!-- data-target="#reservasDeCliente"-->
+                <app-boton-ver-reservas [reservas]="reservasAMostrar | async"></app-boton-ver-reservas>
+            </div>
+        </div>
+        <div class="col-3">
+            <button class="btn btn-dark btn-icon btn-lista-negra"></button>
+            <button class="btn btn-warning btn-icon btn-chat"></button>
+        </div>
+    </div>
+
+    <pagination-controls id="pagination-clients" (pageChange)="p = $event"></pagination-controls>
+</div>

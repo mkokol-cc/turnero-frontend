@@ -1,0 +1,112 @@
+<div *ngIf="asignacion!=null">
+  <form class="form-datos-add">
+
+      <h3><b>{{asignacion.tipoTurno.nombre}}</b> de <b>{{asignacion.recurso.nombre}}</b></h3>
+
+      <div class="form-group">
+        <label for="precioDesde">Precio</label>
+        <div class="row m-0 div-de-precios">
+          <input type="number" class="form-control col-5" id="precioDesde" name="precioDesde" [(ngModel)]="asignacion.precioDesde">
+          <div class="col-2" class="separador">-</div>
+          <input type="number" class="form-control col-5" id="precioHasta" name="precioHasta" [(ngModel)]="asignacion.precioHasta">
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="senia">Seña</label>
+        <input type="number" class="form-control" id="senia" name="senia" [(ngModel)]="asignacion.senia">
+      </div>
+      <div class="form-group">
+          <label for="duracion">Duración</label>
+          <div class="input-group-append">
+              <input type="number" class="form-control" id="duracion" name="duracion" [(ngModel)]="asignacion.duracionEnMinutos">
+              <span class="input-group-text" id="validatedInputGroupPrepend">Minutos</span>
+          </div>
+      </div>
+      <div class="form-group">
+          <label for="concurrencia">Concurrencia</label>
+          <input type="number" class="form-control" id="concurrencia" name="concurrencia" [(ngModel)]="asignacion.cantidadConcurrencia">
+      </div>
+      <div class="row m-0" id="formDatosAsigFooter">
+
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-dark col boton-secundario-form-add" data-toggle="modal" data-target="#horariosAsig">
+          Horarios
+        </button>
+        <button class="btn btn-outline-light col boton-primario-form-add" (click)="guardarDatosAsignacion()">Guardar</button>
+
+
+      </div>
+  </form>
+</div>
+
+
+
+
+
+<!-- Modal -->
+<div *ngIf="asignacion!=null" class=" modal fade" id="horariosAsig" tabindex="-1" aria-labelledby="horariosAsigLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="horariosAsigLabel">Horarios <b>{{asignacion.tipoTurno.nombre}}</b> de <b>{{asignacion.recurso.nombre}}</b></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <app-horarios-asignacion [asignacion]="asignacion"></app-horarios-asignacion>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!--ESTETICO-->
+<div *ngIf="asignacion==null">
+  <form class="form-datos-add">
+
+    <!--
+      <h3><b>{{asignacion.tipoTurno.nombre}}</b> de <b>{{asignacion.recurso.nombre}}</b></h3>
+    -->
+      <div class="form-group">
+        <label for="precioDesde">Precio</label>
+        <div class="row m-0 div-de-precios">
+          <input type="number" class="form-control col-5" id="precioDesde" name="precioDesde" [disabled]="true">
+          <div class="col-2" class="separador">-</div>
+          <input type="number" class="form-control col-5" id="precioHasta" name="precioHasta" [disabled]="true">
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="senia">Seña</label>
+        <input type="number" class="form-control" id="senia" name="senia" [disabled]="true">
+      </div>
+      <div class="form-group">
+          <label for="duracion">Duración</label>
+          <div class="input-group-append">
+              <input type="number" class="form-control" id="duracion" name="duracion" [disabled]="true">
+              <span class="input-group-text" id="validatedInputGroupPrepend">Minutos</span>
+          </div>
+      </div>
+      <div class="form-group">
+          <label for="concurrencia">Concurrencia</label>
+          <input type="number" class="form-control" id="concurrencia" name="concurrencia" [disabled]="true">
+      </div>
+      <div class="row m-0" id="formDatosAsigFooter">
+
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-dark col boton-secundario-form-add" [disabled]="true">
+          Horarios
+        </button>
+        <button class="btn btn-outline-light col boton-primario-form-add" [disabled]="true">Guardar</button>
+
+
+      </div>
+  </form>
+</div>

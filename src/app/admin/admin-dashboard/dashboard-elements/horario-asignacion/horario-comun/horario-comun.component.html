@@ -1,0 +1,46 @@
+<form>
+    <form class="form" (ngSubmit)="agregarHorario()"><!--*ngIf="horarios.length>0" -->
+      <div class="row" id="form-nuevo-horario">
+        <div class="col-4">
+          <label for="nuevoDesde">Desde</label>
+          <input type="time" [(ngModel)]="nuevoDesde" class="form-control" name="nuevoDesde" id="nuevoDesde">
+        </div>
+  
+        <div class="col-4">
+          <label for="nuevoHasta">Hasta</label>
+          <input type="time" [(ngModel)]="nuevoHasta" class="form-control" name="nuevoHasta" id="nuevoHasta">
+        </div>
+  
+        <div class="col-3">
+          <label for="nuevoDia">Día</label>
+          <select [(ngModel)]="nuevoDia" class="form-control" name="nuevoDia" id="nuevoDia">
+            <option value="LUNES">Lunes</option>
+            <option value="MARTES">Martes</option>
+            <option value="MIÉRCOLES">Miércoles</option>
+            <option value="JUEVES">Jueves</option>
+            <option value="VIERNES">Viernes</option>
+            <option value="SÁBADO">Sábado</option>
+            <option value="DOMINGO">Domingo</option>
+          </select>
+        </div>
+  
+        <button class="btn btn-success col-1" id="agregar-horario">+</button>
+      </div>
+    </form>
+    <div *ngFor="let h of horarios" class="input-group">
+      <span class="badge badge-info">{{h.dia}}</span> de <input type="time" [value]="h.desde" class="form-control"> a <input type="time" class="form-control" [value]="h.hasta">
+      <button class="btn btn-danger" (click)="borrarHorario(h)">x</button>
+    </div>
+    <div *ngIf="horarios.length==0">
+      <p>No Hay Horarios Aún!</p>
+    </div>
+  
+  
+  
+    <button class="btn btn-danger">Volver</button>
+    <button [disabled]="horarios.length>0" (click)="guardarHorarios()" class="btn btn-secondary">Guardar Horarios</button>
+
+
+
+    <button (click)="verDatos()">ACA</button>
+  </form>

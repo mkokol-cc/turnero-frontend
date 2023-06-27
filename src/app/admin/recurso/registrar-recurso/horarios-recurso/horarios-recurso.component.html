@@ -1,0 +1,322 @@
+
+<div class="container">
+
+<!--
+    
+    <div>
+        <div class="paso1-horariosEspRecursos" *ngIf="paso==1">
+            <h4>Día Específico</h4>
+            <input type="date" name="fechaEspecifica" id="fechaEspecifica" [(ngModel)]="fecha">
+            <button class="btn btn-primary" (click)="irPaso(2)">Agregar Horarios</button>
+        </div>
+
+
+
+
+        <div class="paso2-horariosEspRecursos" *ngIf="paso==2">
+
+            <h3>Horarios Especiales - <b>{{fecha}}</b><button class="btn btn-danger" (click)="irPaso(1)">Volver</button></h3>
+
+            <div *ngFor="let he of horariosEspeciales">
+                <p>{{he.desde}}-{{he.hasta}} <button class="btn btn-danger" (click)="eliminarHorarioEsp(he)">x</button></p>
+            </div>
+            <button class="btn btn-success" (click)="habilitarHorarioEsp=true">+</button>
+            <div class="row" *ngIf="habilitarHorarioEsp">
+                <div class="form-group col">
+                    <label for="horaDesdeEsp">Desde</label>
+                    <input type="time" class="form-control" id="horaDesdeEsp" [(ngModel)]="desdeEsp">
+                </div>
+                <div class="form-group col">
+                    <label for="horaHastaEsp">Hasta</label>
+                    <input type="time" class="form-control" id="horaHastaEsp" [(ngModel)]="hastaEsp">
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary" (click)="addHorarioEsp()">Guardar</button>
+                </div>
+            </div>
+            <button class="btn btn-outline-info" (click)="confirmarHorariosEsp()">Confirmar Horarios</button>
+        </div>
+    </div>
+
+
+
+-->
+
+
+
+    
+    <div>
+
+        <h4>Calendario Semanal</h4>
+
+        <div class="semana">
+            <div class="card-dia">
+                <h3>LUNES</h3>
+                <div class="container-day-time">
+                <div *ngFor="let h of horarios">
+                    <p *ngIf="h.dia=='LUNES'" class="m-0">
+                        {{h.desde.substring(0,5)}} a {{h.hasta.substring(0,5)}}
+                        <button class="btn btn-danger btn-icon btn-borrar" (click)="eliminarHorario(h)"></button>
+                    </p>
+                </div>
+                </div>
+            </div>
+            <div class="card-dia">
+                <h3>MARTES</h3>
+                <div class="container-day-time">
+                <div *ngFor="let h of horarios">
+                    <p *ngIf="h.dia=='MARTES'" class="m-0">
+                        {{h.desde.substring(0,5)}} a {{h.hasta.substring(0,5)}}
+                        <button class="btn btn-danger btn-icon btn-borrar" (click)="eliminarHorario(h)"></button>
+                    </p>
+                </div>
+                </div>
+            </div>
+            <div class="card-dia">
+                <h3>MIERCOLES</h3>
+                <div class="container-day-time">
+                <div *ngFor="let h of horarios">
+                    <p *ngIf="h.dia=='MIÉRCOLES'" class="m-0">
+                        {{h.desde.substring(0,5)}} a {{h.hasta.substring(0,5)}}
+                        <button class="btn btn-danger btn-icon btn-borrar" (click)="eliminarHorario(h)"></button>
+                    </p>
+                </div>
+                </div>
+            </div>
+            <div class="card-dia">
+                <h3>JUEVES</h3>
+                <div class="container-day-time">
+                <div *ngFor="let h of horarios">
+                    <p *ngIf="h.dia=='JUEVES'" class="m-0">
+                        {{h.desde.substring(0,5)}} a {{h.hasta.substring(0,5)}}
+                        <button class="btn btn-danger btn-icon btn-borrar" (click)="eliminarHorario(h)"></button>
+                    </p>
+                </div>
+                </div>
+            </div>
+            <div class="card-dia">
+                <h3>VIERNES</h3>
+                <div class="container-day-time">
+                <div *ngFor="let h of horarios">
+                    <p *ngIf="h.dia=='VIERNES'" class="m-0">
+                        {{h.desde.substring(0,5)}} a {{h.hasta.substring(0,5)}}
+                        <button class="btn btn-danger btn-icon btn-borrar" (click)="eliminarHorario(h)"></button>
+                    </p>
+                </div>
+                </div>
+            </div>
+            <div class="card-dia">
+                <h3>SABADO</h3>
+                <div class="container-day-time">
+                <div *ngFor="let h of horarios">
+                    <p *ngIf="h.dia=='SÁBADO'" class="m-0">
+                        {{h.desde.substring(0,5)}} a {{h.hasta.substring(0,5)}}
+                        <button class="btn btn-danger btn-icon btn-borrar" (click)="eliminarHorario(h)"></button>
+                    </p>
+                </div>
+                </div>
+            </div>
+            <div class="card-dia">
+                <h3>DOMINGO</h3>
+                <div class="container-day-time">
+                <div *ngFor="let h of horarios">
+                    <p *ngIf="h.dia=='DOMINGO'" class="m-0">
+                        {{h.desde.substring(0,5)}} a {{h.hasta.substring(0,5)}}
+                        <button class="btn btn-danger btn-icon btn-borrar" (click)="eliminarHorario(h)"></button>
+                    </p>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="agregar-horario">
+            <div class="row m-0 w-100">
+                <div class="col-4">
+                    <label for="horarioDesde" class="form-label m-0">Desde</label>
+                    <input type="time" class="form-control" id="horarioDesde" [(ngModel)]="desde">
+                    <label for="horarioHasta" class="form-label m-0">Hasta</label>
+                    <input type="time" class="form-control" id="horarioHasta" [(ngModel)]="hasta">
+                </div>
+                <div class="col-8">
+
+                    <div class="day-chbx-container">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="selectedDias[0]" id="diaLunesChbx">
+                            <label class="form-check-label" for="diaLunesChbx">
+                                LUNES
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="selectedDias[1]" id="diaMartesChbx">
+                            <label class="form-check-label" for="diaMartesChbx">
+                                MARTES
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="selectedDias[2]" id="diaMiercolesChbx">
+                            <label class="form-check-label" for="diaMiercolesChbx">
+                                MIERCOLES
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="selectedDias[3]" id="diaJuevesChbx">
+                            <label class="form-check-label" for="diaJuevesChbx">
+                                JUEVES
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="selectedDias[4]" id="diaViernesChbx">
+                            <label class="form-check-label" for="diaViernesChbx">
+                                VIERNES
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="selectedDias[5]" id="diaSabadoChbx">
+                            <label class="form-check-label" for="diaSabadoChbx">
+                                SABADO
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" [(ngModel)]="selectedDias[6]" id="diaDomingoChbx">
+                            <label class="form-check-label" for="diaDomingoChbx">
+                                DOMINGO
+                            </label>
+                        </div>
+                    </div>
+                    <div class="div-btn">
+                        <button class="btn btn-info" (click)="agregarHorario()">Agregar</button>
+                    </div>
+
+                </div>
+            </div>
+            <!--<button class="btn btn-success" label="agregar"></button>-->
+        </div>
+
+        <!--
+        <button class="btn btn-info" label="continuar"></button>
+
+
+        <table class="table table-sm table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Domingo</th>
+                <th scope="col">Lunes</th>
+                <th scope="col">Martes</th>
+                <th scope="col">Miércoles</th>
+                <th scope="col">Jueves</th>
+                <th scope="col">Viernes</th>
+                <th scope="col">Sábado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                    <div *ngFor="let h of horarios">
+                        <p *ngIf="h.dia=='DOMINGO'">
+                            De {{h.desde}} a {{h.hasta}}
+                            <button class="btn btn-danger" (click)="eliminarHorario(h)">x</button>
+                        </p>
+                    </div>
+                    
+                    
+                    <button class="btn btn-success add-horario" (click)="indiceDia=6">+</button>
+                </td>
+                <td>
+                    <div *ngFor="let h of horarios">
+                        <p *ngIf="h.dia=='LUNES'">
+                            De {{h.desde}} a {{h.hasta}}
+                            <button class="btn btn-danger" (click)="eliminarHorario(h)">x</button>
+                        </p>
+                    </div>
+                    
+                    
+                    <button class="btn btn-success add-horario" (click)="indiceDia=0">+</button>
+                </td>
+                <td>
+                    <div *ngFor="let h of horarios">
+                        <p *ngIf="h.dia=='MARTES'">
+                            De {{h.desde}} a {{h.hasta}}
+                            <button class="btn btn-danger" (click)="eliminarHorario(h)">x</button>
+                        </p>
+                    </div>
+                    
+                    
+                    <button class="btn btn-success add-horario" (click)="indiceDia=1">+</button>
+                </td>
+                <td>
+                    <div *ngFor="let h of horarios">
+                        <p *ngIf="h.dia=='MIERCOLES'">
+                            De {{h.desde}} a {{h.hasta}}
+                            <button class="btn btn-danger" (click)="eliminarHorario(h)">x</button>
+                        </p>
+                    </div>
+                    
+                    
+                    <button class="btn btn-success add-horario" (click)="indiceDia=2">+</button>
+                </td>
+                <td>
+                    <div *ngFor="let h of horarios">
+                        <p *ngIf="h.dia=='JUEVES'">
+                            De {{h.desde}} a {{h.hasta}}
+                            <button class="btn btn-danger" (click)="eliminarHorario(h)">x</button>
+                        </p>
+                    </div>
+                    
+                    
+                    <button class="btn btn-success add-horario" (click)="indiceDia=3">+</button>
+                </td>
+                <td>
+                    <div *ngFor="let h of horarios">
+                        <p *ngIf="h.dia=='VIERNES'">
+                            De {{h.desde}} a {{h.hasta}}
+                            <button class="btn btn-danger" (click)="eliminarHorario(h)">x</button>
+                        </p>
+                    </div>
+                    
+                    
+                    <button class="btn btn-success add-horario" (click)="indiceDia=4">+</button>
+                </td>
+                <td>
+                    <div *ngFor="let h of horarios">
+                        <p *ngIf="h.dia=='SABADO'">
+                            De {{h.desde}} a {{h.hasta}}
+                            <button class="btn btn-danger" (click)="eliminarHorario(h)">x</button>
+                        </p>
+                    </div>
+                    
+                    
+                    <button class="btn btn-success add-horario" (click)="indiceDia=5">+</button>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+
+
+
+        <div class="row" *ngIf="indiceDia || indiceDia==0">
+            <div class="col">
+                <h4>{{lista[indiceDia]}}</h4>
+            </div>
+            <div class="form-group col">
+                <label for="horaDesde">Desde</label>
+                <input type="time" class="form-control" id="horaDesde" [(ngModel)]="desde">
+            </div>
+            <div class="form-group col">
+                <label for="horaHasta">Hasta</label>
+                <input type="time" class="form-control" id="horaHasta" [(ngModel)]="hasta">
+            </div>
+            <div class="col">
+                <button class="btn btn-primary" (click)="addHorario()">Guardar</button>
+            </div>
+        </div>
+
+        -->
+
+        <button class="btn btn-success" (click)="confirmarHorarios()">Confirmar Horarios</button>
+
+    </div>
+
+
+
+
+</div>
+

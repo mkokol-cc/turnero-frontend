@@ -1,0 +1,49 @@
+.item-asignacion{
+    display: inline-flex;
+}
+
+.item-asignacion{
+    border: 1px solid #888;
+    border-radius: 1rem;
+    overflow: hidden;
+
+    /*background: #eee;*/
+}
+
+.btn-delete:hover{
+    color: #f44;
+}
+
+.btn-add:hover{
+    color: #4d4;
+}
+
+.btn-body{
+    width: max-content;
+    padding-right: 0;
+}
+.btn-body:hover{
+    text-decoration: underline;
+}
+.btn-body.focus, .btn-body.btn:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+.card-elements .col-8{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-items: center;
+}
+/*
+.asignacion-select option:disabled{
+    background-color: #888;
+}*/
+
+.inner-dates{
+    display: inline-grid;
+    text-align: center;
+    justify-items: center;
+    padding: 10px 0;
+}

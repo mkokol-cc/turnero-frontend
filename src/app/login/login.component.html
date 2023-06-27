@@ -1,0 +1,13 @@
+<div class="col-md-6 offset-md-3">
+    <form (ngSubmit)="ngSubmit()">
+        <div class="form-group">
+            <label for="username">Nombre de Usuario:</label>
+            <input class="form-control" [(ngModel)]="loginData.username" type="text" id="username" name="username">
+            <br>
+            <label for="password">Contraseña:</label>
+            <input class="form-control" [(ngModel)]="loginData.password" type="text" id="password" name="password">
+            <br>
+            <button class="btn btn-success">Ingresar</button>
+        </div>
+    </form>    
+</div>

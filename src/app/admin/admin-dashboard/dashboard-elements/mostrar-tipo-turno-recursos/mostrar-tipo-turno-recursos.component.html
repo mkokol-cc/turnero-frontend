@@ -1,0 +1,13 @@
+<div>
+    <form (ngSubmit)="onSubmit()">
+        <div class="input-group">
+            <select class="form-control" id="select-opc-select" (change)="cambiarVerPor($event.target.value)">
+                <option>Tipo de Turno</option>
+                <option>Recurso</option>
+            </select>
+            <app-select-recursos *ngIf="verPor==2" class="tool-select" (optionSelected)="recursoSeleccionado($event)"></app-select-recursos>
+            <app-select-tipo-turno *ngIf="verPor==1" class="tool-select" (optionSelected)="tipoTurnoSeleccionado($event)"></app-select-tipo-turno>
+            <button class="btn btn-success"><i class="bi bi-arrow-right"></i></button>
+        </div>
+    </form>
+</div>

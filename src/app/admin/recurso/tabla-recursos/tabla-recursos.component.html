@@ -1,0 +1,69 @@
+<div>
+    
+    <div *ngIf="divs.length>0">
+        <div *ngFor="let r of divs" class="row card-elements">
+            <div class="col-5">
+
+                <input type="text" name="nombre" id="nombre-{{r.id}}" [value]="r.nombre" [disabled]="r.id!=edicion">
+
+
+                <button type="button" class="btn btn-dark" id="regHorariosRecurso" data-toggle="modal" data-target="#horariosRecurso" (click)="verHorarios(r)"><!--(click)="recursoParaHorario=r"-->
+                    Horarios
+                </button>
+
+
+                <label for="habilitado">Habilitado: <input type="checkbox" name="habilitado" id="habilitado" [(ngModel)]="!r.eliminado" (ngModelChange)="onChange($event, r.id)"></label>
+            </div>
+
+            <div class="col-6">
+                <textarea name="descripcion" id="descripcion-{{r.id}}" cols="30" rows="3" [disabled]="r.id!=edicion">{{r.descripcion}}</textarea>
+                <!--<p>{{r.descripcion}}</p>-->
+                <!--<p>Cantidad de Reservas: 15 <button class="btn btn-info">Mas Info</button></p>-->
+
+
+                <p>Reservas: 15 <button class="btn btn-info btn-informacion btn-icon" (click)="mostrarReservas(r.id)" data-toggle="modal" data-target="#reservas"></button></p>
+            </div>
+
+
+            <div class="col-1 p-0">
+                <button *ngIf="r.id!=edicion" class="btn btn-warning btn-icon btn-editar" (click)="editar(r.id)"></button>
+                <button *ngIf="r.id==edicion" class="btn btn-danger btn-icon btn-cancelar" (click)="editar(null)"></button>
+                <button *ngIf="r.id==edicion" class="btn btn-success btn-icon btn-save-conf" (click)="guardarDatosRecurso(r.id)"></button>
+            </div>
+        </div>
+    </div>
+
+
+    <div *ngIf="1>divs.length">
+        <p>NO HAY RECURSOS TODAVÍA</p>
+    </div>
+
+    <app-boton-ver-reservas [reservas]="reservas"></app-boton-ver-reservas>
+</div>
+
+
+
+
+
+
+
+
+
+<div class=" modal fade" id="horariosRecurso" tabindex="-1" aria-labelledby="horariosRecursoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="horariosRecursoLabel">Horarios<!-- <b>{{asignacion.tipoTurno.nombre}}</b> de <b>{{asignacion.recurso.nombre}}</b>--></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+  
+          <app-horarios-recurso [recurso]="recursoParaHorario"></app-horarios-recurso>
+  
+        </div>
+  
+      </div>
+    </div>
+</div>

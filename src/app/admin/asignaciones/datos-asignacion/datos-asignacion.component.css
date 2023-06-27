@@ -1,0 +1,19 @@
+#formDatosAsigFooter{
+    gap: 10px;
+}
+
+.form-datos-add input{
+    border-radius: 0;
+}
+
+.div-de-precios{
+    display: flex;
+    justify-content: space-between;
+}
+
+#validatedInputGroupPrepend{
+    background: #0000;
+    text-decoration: underline;
+    border: none;
+    padding-right: 0;
+}

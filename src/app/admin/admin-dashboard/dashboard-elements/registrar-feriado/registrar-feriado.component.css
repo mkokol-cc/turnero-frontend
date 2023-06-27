@@ -1,0 +1,56 @@
+.card{
+    border-radius: 0;
+}
+.collapse-header-recurso h2{
+    display: flex;
+}
+.collapse-header-recurso{
+    padding: 0px 20px;
+}
+.card-header{
+    background: #333333;
+}
+.card-header h2 button{
+    color: #fff;
+}
+.asignacion-opc-collapsed{
+    padding: 0px 20px;
+    min-height: 0px;
+    background: #666;
+    color: #fff;
+}
+.asignacion-opc-collapsed label{
+    margin: .7rem 0;
+    line-height: 0;
+}
+
+button.btn-link.focus, button.btn-link:focus{
+    outline: 0;
+    outline-color: initial;
+    outline-style: initial;
+    outline-width: 0px;
+    box-shadow: none;
+}
+#accordionExample{
+    padding: 0 3rem 1rem;
+}
+/*
+#dia-especifico{
+    min-width: 200px;
+    text-align: center;
+}*/
+.button-div{
+    text-align: center;
+}
+.button-div button{
+    width: auto;
+}
+p.aviso{
+    text-align: center;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 5px 20px;
+}
+.aviso-cont{
+    padding: 0 10% 20px;
+}

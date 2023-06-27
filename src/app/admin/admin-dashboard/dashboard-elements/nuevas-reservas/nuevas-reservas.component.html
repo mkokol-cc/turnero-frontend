@@ -1,0 +1,91 @@
+<!--
+<div class="radio">
+  <input type="radio" label="En Verificación" name="state" value="lunes">
+  <input type="radio" label="Aceptadas" name="state" value="martes">
+  <input type="radio" label="Finalizadas" name="state" value="miércoles">
+  <input type="radio" label="Postergadas" name="state" value="jueves">
+  <input type="radio" label="Rechazadas" name="state" value="viernes">
+  <input type="radio" label="Canceladas" name="state" value="sábado">
+  <input type="radio" label="Todas" name="state" value="sábado">
+</div>
+-->
+
+<div>
+  <h2>AGENDA</h2>
+
+  <div class="filtro-reservas-dias">
+    <div class="filtro-dias">
+      <div>
+        <input type="date" name="fecha-agenda-desde" id="fecha-agenda-desde" [(ngModel)]="dia1" (change)="filtrar()"> - 
+        <input type="date" name="fecha-agenda-hasta" id="fecha-agenda-hasta" [(ngModel)]="dia2" [disabled]="!dia1" (change)="filtrar()">
+      </div>
+      <div>
+        <button class="btn btn-icon btn-cancelar btn-danger" (click)="borrarFiltroDias()"></button>
+      </div>
+    </div>
+    <div>
+      <input type="text" [(ngModel)]="filter" placeholder="Filtrar" (keyup)="handleInputChange($event)">
+    </div>
+  </div>
+
+  <!--
+  <div>
+    <input type="text" [(ngModel)]="filter" placeholder="Filtrar">
+  </div>
+  -->
+  
+
+</div>
+<div><!--aver si anda el ngx-pagination-->
+    <div *ngFor="let r of reservas | paginate: { id:'pagination-main' ,itemsPerPage: 3, currentPage: p }" class="card-elements" id="reserva-{{r.id}}">
+      <div class="row m-0">
+        <div class="col-4">
+
+          <div class="row m-0 reserva-side-place" *ngIf="reservaEdit==r.id">
+            <select class="form-control" id="estado-reserva-{{r.id}}-select">
+              <option *ngFor="let e of listaEstados" value="{{e.id}}" [selected]="r.estado.id==e.id">{{e.nombre}}</option>
+            </select>
+            <button class="btn btn-success btn-icon btn-save-conf" (click)="guardarEstado(r)"></button>
+          </div>
+
+
+          <p class="m-0" *ngIf="reservaEdit!=r.id"><b>{{r.estado.nombre}}</b></p>
+          
+          
+          <p class="m-0"><b>{{r.fecha}} - {{r.hora}}</b></p>
+          <p class="m-0"><b>{{r.reservante.telefono}}</b></p>
+          <p class="m-0"><b>{{r.tipoReserva}}</b></p>
+        </div>
+        <div class="col-7">
+          <p>{{r.nota}}</p>
+          <p>{{r.asignacion.recurso.nombre}} - {{r.asignacion.tipoTurno.nombre}} - {{r.asignacion.duracionEnMinutos}} min</p>
+        </div>
+        <div class="col-1 tools-reserva-card p-0">
+          <button class="btn btn-info btn-nota btn-icon"></button>
+          <button class="btn btn-warning btn-chat btn-icon"></button>
+          <button *ngIf="reservaEdit!=r.id" class="btn btn-primary btn-editar btn-icon" (click)="editarEstado(r)"></button>
+          <button *ngIf="reservaEdit==r.id" class="btn btn-danger btn-icon btn-cancelar" (click)="cancelarEdicion()"></button>
+        </div>
+      </div>
+    </div>
+  
+    <!--
+    <input type="text" [(ngModel)]="filter" placeholder="Filtrar" (keyup)="handleInputChange($event)">  
+    <ul class="list-group">
+      <li *ngFor="let n of numeros | paginate: { itemsPerPage: 2, currentPage: p }"
+          class="list-group-item">
+          {{ n }}
+      </li>
+      
+    </ul>-->
+    <pagination-controls id="pagination-main" (pageChange)="p = $event"></pagination-controls>
+
+</div>
+<!--
+<div>
+    <form class="row m-0">
+        <button class="col btn btn-succes">Aceptar Todas</button>
+    </form>
+</div>
+-->
+

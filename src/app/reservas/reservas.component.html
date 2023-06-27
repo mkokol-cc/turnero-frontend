@@ -1,0 +1,25 @@
+<h2>Todas las Reservas</h2>
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Estado</th>
+            <th>Recurso</th>
+            <th>Turno</th>
+            <th>Usuario</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let reserva of reservas">
+            <th>{{reserva.id}}</th>
+            <th>{{reserva.fecha | date: 'dd/MM/yyyy'}}</th>
+            <th>{{reserva.hora}}</th>
+            <th>{{reserva.estado.nombre}}</th>
+            <th>{{reserva.recurso.nombre}}</th>
+            <th>{{reserva.tipoTurno.nombre}} ({{reserva.tipoTurno.duracionEnMinutos}} minutos)</th>
+            <th>{{reserva.usuario.nombre}}</th>      
+        </tr>
+    </tbody>
+</table>

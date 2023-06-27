@@ -1,0 +1,4 @@
+<select class="form-control" id="select-recurso" (change)="onSelect($event.target.value)">
+    <option>Selecciona una opción</option>
+    <option *ngFor="let recurso of listaRecursos" value="{{recurso.id}}">{{recurso.nombre}}</option>
+</select>

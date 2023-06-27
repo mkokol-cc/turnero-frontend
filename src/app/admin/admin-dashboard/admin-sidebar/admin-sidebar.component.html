@@ -1,0 +1,88 @@
+<div class="position-relative h-100">
+    <div id="header-sidebar">
+      <a href="admin" class="d-block h-100">HOME</a>
+    </div>
+
+
+    <ul class="nav flex-column">
+      <!--
+
+      <li class="nav-item">
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample">
+          Recursos
+        </button>
+        <div class="collapse" id="collapseExample">
+          <ul class="list-group">
+            <li class="nav-item list-group-item"><a class="nav-link" href="admin/registrar-recurso">Nuevo</a></li>
+            <li class="nav-item list-group-item"><a class="nav-link" href="admin/editar-recurso">Editar</a></li>
+          </ul>
+        </div>
+
+
+      </li>
+
+
+      <li class="nav-item">
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2">
+          Tipo de Turno
+        </button>
+        <div class="collapse" id="collapseExample2">
+          <ul class="list-group">
+            <li class="nav-item list-group-item"><a class="nav-link" href="admin/registrar-tipo-turno">Nuevo</a></li>
+            <li class="nav-item list-group-item"><a class="nav-link" href="admin/editar-tipo-turno">Editar</a></li>
+          </ul>
+        </div>
+      </li>
+      -->
+
+
+      <li class="nav-item">
+        <a class="nav-link" href="admin/editar-recurso"><i class="bi bi-caret-right"></i> Recursos</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="admin/editar-tipo-turno"><i class="bi bi-caret-right"></i> Tipos de Turno</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="admin/asignaciones"><i class="bi bi-caret-right"></i> Asignaciones</a>
+      </li>
+<!--
+      <li class="nav-item">
+        <a class="nav-link" href="admin/estadisticas">Estadísticas</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="admin/buzon">Buzón</a>
+      </li>
+-->
+      <li class="nav-item">
+        <a class="nav-link" href="admin/configuracion"><i class="bi bi-gear"></i> Configuración</a>
+      </li>
+<!--
+      <li class="nav-item">
+        <a class="nav-link" href="admin/ayuda">Ayuda</a>
+      </li>
+-->
+    </ul>
+
+    <!--<app-botones-dashboard></app-botones-dashboard>-->
+
+    <div id="botones-dashboard">
+      <div class="boton-dashboard-container">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn boton-dashboard" data-toggle="modal" data-target="#exampleModal" (click)="enviarOpcionModal(1)">
+              Registrar Reserva
+          </button>
+      </div>
+      <div class="boton-dashboard-container p-0">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn boton-dashboard" data-toggle="modal" data-target="#exampleModal" (click)="enviarOpcionModal(2)">
+              Registrar Feriado
+          </button>
+      </div>
+  </div>
+    
+    <app-login-sidebar id="login-sidebar" class="position-absolute w-100"></app-login-sidebar>
+      
+</div>

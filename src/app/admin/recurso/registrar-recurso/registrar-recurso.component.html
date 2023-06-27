@@ -1,0 +1,15 @@
+<form (ngSubmit)="ngSubmit()" class="form-datos-add">
+    <div class="form-group">
+        <h3 class="m-0">Nuevo</h3>
+        <h3><b>RECURSO</b></h3>
+        <label for="nombre">Nombre:</label>
+        <input class="form-control w-100" [(ngModel)]="recurso.nombre" type="text" id="nombre" name="nombre">
+        <br>
+        <label for="descripcion">Descripcion:</label>
+        <textarea class="form-control w-100" name="descripcion" id="descripcion" cols="30" rows="3" [(ngModel)]="recurso.descripcion"></textarea>
+        <br>
+        <div class="row m-0">
+            <button class="btn btn-outline-light col boton-primario-form-add">Guardar</button>
+        </div>
+    </div>
+</form>

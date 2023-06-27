@@ -1,0 +1,48 @@
+<div>
+    <h4>AGENDA</h4>
+</div>
+<div>
+    <form>
+        <div class="form-group row m-0">
+            <button class="col btn" id="restar-dia"><</button>
+            <input class="col" type="date" id="fecha-agenda">
+            <button class="col btn" id="sumar-dia">></button>
+            <button (click)="mostrarAgenda()" class="btn btn-success">Ver Agenda</button>
+        </div>
+    </form>
+</div>
+<div>
+    <div>
+        <h6 #agendaSubtitle></h6>
+        <div #agendaReservas>
+
+            <div *ngFor="let div of listaDivs" class="row agenda-reserva" id="div.id">
+                <div class="col-2">
+                    {{div.estado}}
+                </div>
+                <div class="col-2">
+                    {{div.hora}}
+                </div>
+                <div class="col-6">
+                    <div>{{div.tipoTurno}}</div>
+                    <div>{{div.recurso}}</div>
+                </div>
+                <div class="col-2">
+                    {{div.usuario}}
+                </div>
+            </div>
+
+            <div *ngIf="estaVacio">
+                <p>NO TIENES TURNOS PARA LA FECHA</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row m-0">
+    <form class="col m-0">
+        <button class="col btn btn-success">Cancelar Todas</button>
+    </form>
+    <form class="col m-0">
+        <button class="col btn btn-success">Postergar Todas</button>
+    </form>
+</div>

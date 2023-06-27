@@ -1,0 +1,29 @@
+/*
+#botones-dashboard{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+}
+
+#botones-dashboard .boton-dashboard{
+    height: 80px;
+    width: 80px;
+    margin-left: 20px;
+}
+
+#botones-dashboard .boton-dashboard button:hover{
+    box-shadow: 0px 0px 55px -15px rgba(0,0,0,0.78);
+    -webkit-box-shadow: 0px 0px 55px -15px rgba(0,0,0,0.78);
+    -moz-box-shadow: 0px 0px 55px -15px rgba(0,0,0,0.78);
+}
+
+#botones-dashboard .boton-dashboard button{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 0px 0px 55px -29px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 55px -29px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 55px -29px rgba(0,0,0,0.75);
+}
+*/

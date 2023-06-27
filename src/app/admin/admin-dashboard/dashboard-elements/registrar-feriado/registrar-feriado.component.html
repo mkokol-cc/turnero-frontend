@@ -1,0 +1,53 @@
+<div>
+    <form (ngSubmit)="confirm()">
+      <div class="aviso-cont">
+        <p class="m-0 aviso">Las reservas afectadas por el feriado seran notificadas vía WhatsApp junto con el motivo.</p>
+      </div>
+      <div class="div-dia row m-0 p-0 w-100">
+        <div class="col-5">
+          <label for="dia-especifico">Fecha:</label>
+          <input class="form-control" type="date" name="dia-especifico" id="dia-especifico" [(ngModel)]="fecha">
+        </div>
+        <div class="col-7">
+          <label for="motivo">Motivo:</label>
+          <textarea class="form-control" name="motivo" id="motivo" cols="30" rows="3"></textarea>
+        </div>
+      </div>
+      <div class="row m-0 w-100">
+        <div class="col-12">
+          <label for="accordionExample">Seleccione:</label>
+          <div class="accordion" id="accordionExample" name="accordionExample">
+            <div *ngFor="let rec of recursos" class="card">
+              <div class="card-header collapse-header-recurso" id="headingOne">
+                <h2 class="mb-0">
+                    <p-checkbox value="{{rec.id}}" (onChange)="seleccionarAsignaciones(rec,$event)"></p-checkbox>
+                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" [attr.data-target]="'#collapseOne-' + rec.id" [attr.aria-expanded]="true" [attr.aria-controls]="'collapseOne-' + rec.id">{{rec.nombre}}</button>
+                </h2>
+              </div>
+              <div id="collapseOne-{{rec.id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body asignacion-opc-collapsed" *ngFor="let a of todasLasAsigChbx">
+                  <!--
+                    <label *ngIf="a.recurso.id==rec.id && !a.eliminado" for="asig-a.id">
+                        <input type="checkbox" name="asig-a.id" id="asig-a.id" [checked]="a.seleccionado">
+                        {{a.tipoTurno.nombre}}
+                    </label>-->
+
+
+
+
+                    <p-checkbox *ngIf="a.recurso.id==rec.id && !a.eliminado" label="{{a.tipoTurno.nombre}}" name="asig-{{a.id}}" id="asig-{{a.id}}" [binary]="true" [(ngModel)]="selectedValues[a.id]"></p-checkbox>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row m-0 w-100">
+        <div class="col-12 button-div">
+          <button class="btn btn-danger form-control" type="submit">Guardar Feriado</button>
+        </div>
+      </div>
+    </form>
+</div>
+
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>

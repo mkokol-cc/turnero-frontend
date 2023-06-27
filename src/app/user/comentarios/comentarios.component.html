@@ -1,0 +1,28 @@
+<div>
+    <h4>Deja tu Comentario</h4>
+    <form>
+        <textarea class="w-100" name="comentario-input" id="comentario-input" rows="5"></textarea>
+        <button (click)="publicarComentario(-1)">Comentar</button>
+    </form>
+    <h4>Comentarios</h4>
+    <div>
+        <div *ngIf="listaComentarios.length>0">
+            <div *ngFor="let comentario of listaComentarios">
+                <div><p>{{comentario.usuario.nombre}}</p><p>{{comentario.comentario}}</p></div>
+                <button (click)="modoRespuesta(comentario.id)" class="btn btn-primary">Responder</button>
+                <div id="respuesta-div-{{comentario.id}}" class="respuesta-form" style="display: none;">
+                    <textarea class="w-100" name="respuesta-input-{{comentario.id}}" id="respuesta-input-{{comentario.id}}" rows="3"></textarea>
+                    <button (click)="publicarComentario(comentario.id)" class="btn btn-success">Comentar</button>
+                </div>
+                <div *ngFor="let comentario2 of listaComentarios">
+                    <div *ngIf="comentario.id==comentario2.respuesta">
+                        <div><p>{{comentario2.usuario.nombre}}</p><p>{{comentario2.comentario}}</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="listaComentarios.length==0">
+            No hay comentarios aún
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+.add-horario{
+    border-radius: 50%;
+}
+
+.table{
+    border-radius: 0.5rem;
+}
+
+th{
+    border-top: none;
+}

@@ -1,0 +1,33 @@
+<p>asignar-tipo-turno-recurso works!</p>
+<form (ngSubmit)="onSubmit()">
+  <app-mostrar-tipo-turno-recursos (buttonClicked)="onButtonClick($event)"></app-mostrar-tipo-turno-recursos>
+  <!--
+  <div *ngIf="listaTipoTurnoCompleta.length>0">
+    <p>Tipos de Turno asociados:</p>
+    <ul class="ks-cboxtags">
+      <li *ngFor="let tipoTurno of listaTipoTurnoCompleta">
+          <input class="form-control" type="checkbox"  id="{{tipoTurno.nombre}}" name="{{tipoTurno.nombre}}" [checked]="isTipoTurnoAsociado(tipoTurno.id)">
+          <label for="{{tipoTurno.nombre}}">{{ tipoTurno.nombre }}</label>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="listaRecursosCompleta.length>0">
+    <p>Recursos asociados:</p>
+    <ul class="ks-cboxtags">
+      <li *ngFor="let recurso of listaRecursos">
+          <input class="form-control" type="checkbox"  id="{{recurso.nombre}}" name="{{recurso.nombre}}" [checked]="isRecursoAsociado(recurso.id)">
+          <label for="{{recurso.nombre}}">{{ recurso.nombre }}</label>
+      </li>
+    </ul>
+  </div>
+-->
+  <div *ngIf="listaChbx.length>0">
+    <ul class="ks-cboxtags">
+      <li *ngFor="let chbx of listaChbx">
+          <input class="form-control" type="checkbox"  id="{{chbx.nombre}}" name="{{chbx.nombre}}" [checked]="chbx.seleccionado" [(ngModel)]="chbx.seleccionado">
+          <label for="{{chbx.nombre}}">{{ chbx.nombre }}</label>
+      </li>
+    </ul>
+  </div>
+  <button class="btn btn-success">Guardar Cambios</button>
+</form>

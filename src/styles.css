@@ -1,0 +1,163 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~primeicons/primeicons.css";
+@import "~primeng/resources/themes/nova-light/theme.css";
+@import "~primeng/resources/primeng.min.css";
+*{
+    /*font-family: 'Dosis', sans-serif;
+    font-family: 'Manrope', sans-serif;*/
+    font-family: 'Poppins', sans-serif;
+}
+
+#toast-container > div {
+    opacity:1 !important;
+}
+
+.card-elements{
+    margin: 0 0 20px;
+    background: #fff;
+    box-shadow: 0px 0px 45px -14px rgb(0 0 0 / 21%);
+    -webkit-box-shadow: 0px 0px 45px -14px rgb(0 0 0 / 21%);
+    -moz-box-shadow: 0px 0px 45px -14px rgb(0 0 0 / 21%);
+}
+
+.card-elements .col-8, .card-elements .col-7{
+    padding: 10px 25px 10px 10px;
+}
+
+.card-elements .col-4,.card-elements .col-5{
+    width: 100%;
+    border-radius: 100% 0% 100% 0% / 0% 0% 400% 100%;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(to bottom left, #99E2B4, #ABC4FF);
+    box-shadow: 0px 0px 45px -14px rgb(0 0 0 / 21%);
+    -webkit-box-shadow: 0px 0px 45px -14px rgb(0 0 0 / 21%);
+    -moz-box-shadow: 0px 0px 45px -14px rgb(0 0 0 / 21%);
+}
+
+.form-datos-add{
+    background: linear-gradient(to bottom left, #99E2B4, #ABC4FF);
+    padding: 30px 30px;
+    box-shadow: 0px 0px 45px -14px rgb(0 0 0 / 21%);
+    -webkit-box-shadow: 0px 0px 45px -14px rgb(0 0 0 / 21%);
+    -moz-box-shadow: 0px 0px 45px -14px rgb(0 0 0 / 21%);
+}
+
+.form-datos-add .boton-secundario-form-add{
+    border-radius: 0;
+}
+
+.form-datos-add .boton-primario-form-add{
+    border-radius: 0;
+    border: 2px solid #fff;
+    border-radius: 0;
+}
+
+.separador{
+    text-align: center;
+}
+
+.modal-content{
+    /*background: linear-gradient(to bottom left, #99E2B4, #ABC4FF);*/
+    background: #ABC4FF;
+
+    border-radius: 0;
+    border: 0px;
+    box-shadow: 0px 0px 45px -14px rgb(0 0 0 / 79%);
+    -webkit-box-shadow: 0px 0px 45px -14px rgb(0 0 0 / 79%);
+    -moz-box-shadow: 0px 0px 45px -14px rgb(0 0 0 / 79%);
+}
+.modal-title{
+    width: 100%;
+    text-align: center;
+}
+.modal-header{
+    background: #333;
+    color: #fff;
+    border-radius: 0;
+}
+.modal-header button.close span{
+    color: #fff;
+}
+.modal-body{
+    padding: .8rem 4rem;
+}
+.modal-footer{
+    display: none;
+}
+
+
+.card-elements-2{
+    background: linear-gradient(to bottom left, #99E2B4, #ABC4FF);
+}
+
+.card-elements-outline{
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: linear-gradient(#99E2B4, #ABC4FF);
+    background: -webkit-linear-gradient( #99E2B4, #ABC4FF);
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-color: #fff;
+    color: #444;
+}
+
+.btn-icon{
+    padding: 0.4rem 0.8rem;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 0;
+    width: 2rem;
+    height: 2rem;
+}
+
+.btn-editar{
+    background-image: url(https://icons.getbootstrap.com/assets/icons/pencil.svg);
+}
+.btn-borrar{
+    background-image: url(https://icons.getbootstrap.com/assets/icons/trash3.svg);
+}
+.btn-nota{
+    background-image: url(https://icons.getbootstrap.com/assets/icons/envelope-paper.svg);
+}
+.btn-chat{
+    background-image: url(https://icons.getbootstrap.com/assets/icons/chat-left-text.svg);
+}
+.btn-save-conf{
+    background-image: url(https://icons.getbootstrap.com/assets/icons/check2.svg);
+}
+.btn-cancelar{
+    background-image: url(https://icons.getbootstrap.com/assets/icons/x-lg.svg);
+}
+.btn-informacion{
+    background-image: url(https://icons.getbootstrap.com/assets/icons/info-lg.svg);
+}
+.btn-lista-negra{
+    background-image: url(https://icons.getbootstrap.com/assets/icons/person-fill-slash.svg);
+}
+/*
+.btn-agregar{
+    background-image: url(path/to/icon.png);
+}
+.btn-lista-negra{
+    background-image: url(path/to/icon.png);
+}
+.btn-lista-negra{
+    background-image: url(path/to/icon.png);
+}
+
+.modal {
+    z-index: 1050;
+}*/
+
+option:disabled{
+    background-color: #888;
+    color: #222;
+}
+textarea{
+    resize: none;
+}

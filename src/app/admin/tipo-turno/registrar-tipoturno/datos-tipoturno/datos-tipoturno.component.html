@@ -1,0 +1,29 @@
+<form>
+    <div class="form-group">
+        <label for="precioDesde">Precio</label>
+        <div class="row m-0">
+          <input type="number" class="form-control col-5" id="precioDesde" name="precioDesde" [(ngModel)]="asignacion.precioDesde">
+          <div class="col-2" id="separador">-</div>
+          <input type="number" class="form-control col-5" id="precioHasta" name="precioHasta" [(ngModel)]="asignacion.precioHasta">
+        </div>
+    </div>
+      
+    <div class="form-group">
+        <label for="senia">Seña</label>
+        <input type="number" class="form-control" id="senia" name="senia" [(ngModel)]="asignacion.senia">
+    </div>
+    <div class="form-group">
+        <label for="duracion">Duración</label>
+        <div class="input-group-append">
+            <input type="number" class="form-control" id="duracion" name="duracion" [(ngModel)]="asignacion.duracionEnMinutos">
+            <span class="input-group-text" id="validatedInputGroupPrepend">Minutos</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="concurrencia">Concurrencia</label>
+        <input type="number" class="form-control" id="concurrencia" name="concurrencia" [(ngModel)]="asignacion.cantidadConcurrencia">
+    </div>
+
+
+    <button class="btn btn-success" (click)="guardarDatosTipoTurno()">Guardar</button>
+</form>

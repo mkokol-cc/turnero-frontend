@@ -1,0 +1,22 @@
+
+<!--
+
+MOSTRAR TABLA CON RECURSOS Y TODOS SUS TIPOS DE TURNO
+---LOS TIPO TURNO HABILITADOS LOS ASIGNADOS
+---LOS TIPO TURNO NO ASIGNADOS DESHABILITADOS Y CON OPCION DE ASIGNAR (RELACION CON EL COMPONENTE CREADO)
+
+AL HACER CLICK SE MUESTRAN TODOS LOS DATOS DE LA ASIGNACION
+---LA IDEA ES QUE SE ABRA AL COSTADO SIN QUE DESAPAREZCA LA TABLA
+---SE MUESTRAN LOS HORARIOS DE LA ASIGNACION (RELACION CON EL COMPONENTE CREADO)
+
+-->
+
+
+<div class="row m-0">
+    <div class="col-8">
+        <app-tabla-asignaciones (asignacionElegida)="recibirDato($event)"></app-tabla-asignaciones><!--OBTENER LA ASIGNACION SELECCIONADA-->
+    </div>
+    <div class="col-4">
+        <app-datos-asignacion [asignacion]="asignacion"></app-datos-asignacion>
+    </div>
+</div>

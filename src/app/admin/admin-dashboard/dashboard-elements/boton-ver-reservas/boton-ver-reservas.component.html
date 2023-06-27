@@ -1,0 +1,175 @@
+<!-- Modal -->
+<div class="modal fade" id="reservas" tabindex="-1" aria-labelledby="reservasLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="reservasLabel">Reservas</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!--<p>Cantidad de reservas {{reservas.length}}</p>-->
+
+                <!--
+                <div *ngFor="let r of reservas">
+                    <p>{{r.reservante.telefono}}</p>
+                    <p>{{r.asignacion.tipoTurno.nombre}}</p>
+                    <p>{{r.asignacion.recurso.nombre}}</p>
+                </div>
+                -->
+
+                <!--<app-nuevas-reservas [reservas]="reservas"></app-nuevas-reservas>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div>
+                    <h2>AGENDA</h2>
+                  
+                    <div class="filtro-reservas-dias">
+                      <div>
+                        <button class="btn btn-info" (click)="setRangoDias(0)">Dia</button>
+                        <button class="btn btn-info" (click)="setRangoDias(1)">Rango</button>
+                      </div>
+                      <div>
+                        <div *ngIf="rangoDias==0">
+                          <input type="date" name="fecha-agenda" id="fecha-agenda">
+                        </div>
+                        <div *ngIf="rangoDias==1">
+                          <p class="m-0">
+                            <input type="date" name="fecha-agenda-desde" id="fecha-agenda-desde"> - 
+                            <input type="date" name="fecha-agenda-hasta" id="fecha-agenda-hasta">
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  
+                  
+                  
+                  </div>
+                  <div><!--aver si anda el ngx-pagination      | paginate: { itemsPerPage: 3, currentPage: p }-->
+                      <div *ngFor="let r of reservas " class="card-elements" id="reserva-{{r.id}}">
+                        <div class="row m-0">
+                          <div class="col-4">
+                  
+                            <div class="row m-0 reserva-side-place" *ngIf="reservaEdit==r.id">
+                              <select class="form-control" id="estado-reserva-{{r.id}}-select">
+                                <option *ngFor="let e of listaEstados" value="{{e.id}}" [selected]="r.estado.id==e.id">{{e.nombre}}</option>
+                              </select>
+                              <button class="btn btn-success btn-icon btn-save-conf" (click)="guardarEstado(r)"></button>
+                            </div>
+                  
+                  
+                            <p class="m-0" *ngIf="reservaEdit!=r.id"><b>{{r.estado.nombre}}</b></p>
+                            
+                            
+                            <p class="m-0"><b>{{r.fecha}} - {{r.hora}}</b></p>
+                            <p class="m-0"><b>{{r.reservante.telefono}}</b></p>
+                            <p class="m-0"><b>{{r.tipoReserva}}</b></p>
+                          </div>
+                          <div class="col-7">
+                            <p>{{r.nota}}</p>
+                            <p>{{r.asignacion.recurso.nombre}} - {{r.asignacion.tipoTurno.nombre}} - {{r.asignacion.duracionEnMinutos}} min</p>
+                          </div>
+                          <div class="col-1 tools-reserva-card p-0">
+                            <button class="btn btn-info btn-nota btn-icon"></button>
+                            <button class="btn btn-warning btn-chat btn-icon"></button>
+                            <button *ngIf="reservaEdit!=r.id" class="btn btn-primary btn-editar btn-icon" (click)="editarEstado(r)"></button>
+                            <button *ngIf="reservaEdit==r.id" class="btn btn-danger btn-icon btn-cancelar" (click)="cancelarEdicion()"></button>
+                          </div>
+                        </div>
+                      </div>
+                    
+                        <!--
+                      <ul class="list-group">
+                        <li 
+                            *ngFor="let n of numeros | paginate: { itemsPerPage: 2, currentPage: p }"
+                            class="list-group-item">
+                            {{ n }}
+                        </li>
+                        
+                      </ul>-->
+                      <!--<pagination-controls (pageChange)="p = $event"></pagination-controls>-->
+                  
+                  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

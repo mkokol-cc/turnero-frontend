@@ -1,0 +1,9 @@
+.day {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+.day div{
+  border-radius: 3rem;
+}

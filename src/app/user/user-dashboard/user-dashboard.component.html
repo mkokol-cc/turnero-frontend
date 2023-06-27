@@ -1,0 +1,38 @@
+<div>
+    <div>
+        <h4>Tu Cuenta</h4>
+        <div>
+            <form>
+                <label for="nombre-usuario">Nombre:</label>
+                <input type="text" id="nombre-usuario" value="{{usuario.nombre}}" [disabled]="!modoEdicion">
+                <br>
+                <label for="apellido-usuario">Apellido:</label>
+                <input type="text" id="apellido-usuario" value="{{usuario.apellido}}" [disabled]="!modoEdicion">
+                <br>
+                <label for="email-usuario">Email:</label>
+                <input type="text" id="email-usuario" value="{{usuario.email}}" [disabled]="!modoEdicion">
+                <br>
+                <label for="telefono-usuario">Telefono:</label>
+                <input type="text" id="telefono-usuario" value="{{usuario.telefono}}" [disabled]="!modoEdicion">
+                <br>
+                <button *ngIf="!modoEdicion" type="button" class="btn btn-warning" (click)="habilitarEdicion(true)">Editar Datos</button>
+                <button *ngIf="modoEdicion" type="button" class="btn btn-success" (click)="guardarDatos($event)">Guardar</button>
+                <button *ngIf="modoEdicion" type="button" class="btn btn-danger" (click)="habilitarEdicion(false)">Cancelar</button>
+            </form>
+        </div>
+        <h4>Tus Reservas</h4>
+        <div>
+            <div *ngFor="let reserva of reservasDeUsuario">
+                <div *ngIf="reserva.tipoTurno && reserva.tipoTurno.nombre">{{reserva.tipoTurno.nombre}}</div>
+                <div *ngIf="reserva.recurso && reserva.recurso.nombre">{{reserva.recurso.nombre}}</div>
+                <div *ngIf="reserva.estado && reserva.estado.nombre">{{reserva.estado.nombre}}</div>
+                <div>{{reserva.fecha}}</div>
+                <div>{{reserva.hora}}</div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <button>Salir</button>
+        <button>Cambiar Contraseña</button>
+    </div>
+</div>

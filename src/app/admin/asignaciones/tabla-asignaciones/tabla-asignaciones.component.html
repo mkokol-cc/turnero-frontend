@@ -1,0 +1,53 @@
+<div>
+    
+    <div *ngIf="divs.length>0">
+        <div *ngFor="let d of divs">
+            <div *ngIf="!d.eliminado" class="row card-elements">
+                <div class="col-4">
+                    <div class="inner-dates">
+
+
+                        <b>{{d.nombre}}</b>
+                        <button *ngIf="modoAgregarTipoTurno!=d.id" class="btn btn-icon btn-success" (click)="habilitarEdicion(d.id)">+</button>
+    
+                        <div *ngIf="modoAgregarTipoTurno==d.id">
+                            
+                            <select class="form-control asignacion-select" [(ngModel)]="asignacionSeleccionado">
+                                <option *ngFor="let a of d.asignaciones" value="{{a.id}}" [selected]="asignacionSeleccionado==a" [disabled]="!a.eliminado">{{a.tipoTurno.nombre}}</option>
+                            </select>
+    
+                            <button class="btn btn-success btn-icon btn-save-conf" (click)="setTipoTurno()"></button>
+                            <button class="btn btn-danger btn-icon btn-cancelar" (click)="cancelarEdicion()"></button>
+    
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+                <div class="col-8">
+                    <div *ngFor="let a of d.asignaciones">
+
+
+                        <div *ngIf="!a.tipoTurno.eliminado && !a.eliminado" class="item-asignacion">
+                            <button [disabled]="a.eliminado" (click)="enviarAsignacion(a)" class="btn btn-body">{{a.tipoTurno.nombre}}</button>
+                            <!--HAY QUE INTEGRAR LA LOGICA DEL COMPONENTE ASIGNAR A ESTOS BOTONES
+                            <button class="btn btn-add" *ngIf="a.eliminado" (click)="setEliminado(a)">+</button>-->
+                            <button class="btn btn-delete" *ngIf="!a.eliminado" (click)="setEliminado(a)">x</button>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="1>divs.length">
+        <p>NO HAY RECURSOS TODAVÍA</p>
+    </div>
+
+</div>

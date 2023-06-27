@@ -1,0 +1,75 @@
+.radio {
+	background: #454857;
+	padding: 4px;
+	border-radius: 3px;
+	box-shadow: inset 0 0 0 3px rgba(35, 33, 45, 0.3),
+		0 0 0 3px rgba(185, 185, 185, 0.3);
+	position: relative;
+    text-align: center;
+}
+
+.radio input {
+	width: auto;
+	height: 100%;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	outline: none;
+	cursor: pointer;
+	border-radius: 2px;
+	padding: 4px 8px;
+	background: #454857;
+	color: #bdbdbdbd;
+	font-size: 14px;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		"Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	transition: all 100ms linear;
+}
+
+.radio input:checked {
+	background-image: linear-gradient(180deg, #95d891, #74bbad);
+	color: #fff;
+	box-shadow: 0 1px 1px #0000002e;
+	text-shadow: 0 1px 0px #79485f7a;
+}
+
+.radio input:before {
+	content: attr(label);
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+}
+
+.tools-reserva-card{
+	align-self: center;
+}
+
+.col-4 p.m-0{
+	text-align: center;
+}
+
+.reserva-side-place{
+	justify-content: center;
+}
+.reserva-side-place select{
+	text-align: center;
+    background: #ecf1fa;
+    border-radius: 0;
+    border: solid 1px #333;
+    color: #333;
+    line-height: 10px;
+    padding: 0;
+    height: 30px;
+    margin: 10px 0 5px;
+}
+
+.filtro-reservas-dias{
+	padding: 10px 20px 10px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+.filtro-reservas-dias .filtro-dias{
+	display: flex;
+    justify-content: space-between;
+}

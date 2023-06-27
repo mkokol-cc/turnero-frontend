@@ -1,0 +1,58 @@
+<!--
+<h3>BIENVENIDO AL PANEL DE ADMINISTRACIÓN</h3>
+
+
+panel izquierdo para ingresar a cada parte en especifico
+
+panel principal con varias secciones de administracion
+    -mis reservas
+    -mis horarios
+    -todos mis clientes (y sus datos y cantidad de reservas)
+    -grafico barras de ventas por tipo de turno
+    -grafico de barras de ventas semanales
+    -opcion de publicitar turnos a los clientes
+    -opcion de publicitar turnos via redes sociales
+-->
+<div class="row">
+    <nav class="col-md-2 d-none d-md-block sidebar vh-100 sticky-top" id="sidebar-admin">
+      <app-admin-sidebar (opcionElegida)="recibirDato($event)"></app-admin-sidebar>
+    </nav>
+    <main role="main" id="admin-main" class="col ml-sm-auto main-dashboard p-0">
+        <div class="w-100 sticky-top" id="dashboard-header">
+            <!--
+            <h2 id="dashboard-title">ESTE ES EL PANEL DE ADMINISTRACION</h2>
+            -->
+            <!--
+            <div id="breadcrumb-header">
+                <ol class="breadcrumb m-0 p-0">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Library</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Data</li>
+                </ol>
+            </div>
+            -->
+            <div class="d-flex">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                        Ayuda
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto, quisquam aperiam porro commodi veniam culpa magnam deserunt vel totam amet esse quae beatae natus quidem consequuntur optio. Sequi, repellat aut?
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                        Buzon
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <app-buzon></app-buzon>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <router-outlet></router-outlet>
+        
+        <app-botones-dashboard [opcion]="opcion"></app-botones-dashboard>
+        
+    </main>
+</div>

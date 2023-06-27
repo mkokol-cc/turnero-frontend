@@ -1,0 +1,39 @@
+<form>
+    <form class="form" (ngSubmit)="agregarHorario()"><!--*ngIf="horarios.length>0" -->
+      <div class="row m-0" id="form-nuevo-horario">
+        <div class="col-5">
+          <label for="nuevoDesde">Desde</label>
+          <input type="time" [(ngModel)]="nuevoDesde" class="form-control" name="nuevoDesde" id="nuevoDesde">
+        </div>
+  
+        <div class="col-5">
+          <label for="nuevoHasta">Hasta</label>
+          <input type="time" [(ngModel)]="nuevoHasta" class="form-control" name="nuevoHasta" id="nuevoHasta">
+        </div>
+  
+        <button class="btn btn-success col-1" id="agregar-horario">+</button>
+      </div>
+    </form>
+
+    <div *ngIf="horariosEspeciales.length>0">
+        <div *ngIf="horariosEspeciales[0].desde!=null">
+          <div *ngFor="let he of horariosEspeciales" class="input-group">
+            <span class="badge badge-info"></span> de <input type="time" [value]="he.desde" class="form-control"> a <input type="time" class="form-control" [value]="he.hasta">
+            <button class="btn btn-danger" (click)="borrarHorario(he)">x</button>
+          </div>
+        </div>
+        <div *ngIf="horariosEspeciales[0].desde==null && horariosEspeciales.length==1">
+          <p>Este Día No Se Trabaja!</p>
+        </div>
+    </div>
+  
+  
+  
+    <button class="btn btn-danger">Volver</button>
+    <button [disabled]="horariosEspeciales.length==0 || (horariosEspeciales[0].desde==null && horariosEspeciales.length==1)" (click)="guardarHorarios()" class="btn btn-secondary">Guardar Horarios</button>
+    <button class="btn btn-danger" (click)="guardarCerrado()">Cerrado</button>
+
+
+
+    <button (click)="verDatos()">ACA</button>
+  </form>

@@ -1,0 +1,33 @@
+#login-sidebar{
+    bottom:0;
+}
+
+#header-sidebar{
+    height: 20vh;
+}
+
+.boton-dashboard{
+    background: rgb(236 241 250);
+    color: #000;
+    border: none;
+    border-radius: 3rem;
+    width: 100%;
+}
+
+.boton-dashboard:hover{
+    background: rgb(255, 255, 255);
+    box-shadow: 0px 0px 55px -15px rgba(0,0,0,0.20);
+    -webkit-box-shadow: 0px 0px 55px -15px rgba(0,0,0,0.20);
+    -moz-box-shadow: 0px 0px 55px -15px rgba(0,0,0,0.20);
+}
+
+.boton-dashboard-container{
+    padding: 10px 0;
+}
+
+a{
+    color: #000;
+}
+a:hover{
+    color: #fff;
+}

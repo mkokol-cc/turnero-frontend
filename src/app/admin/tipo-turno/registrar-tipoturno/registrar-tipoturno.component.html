@@ -1,0 +1,26 @@
+<form (ngSubmit)="ngSubmit()" class="form-datos-add">
+    <div class="form-group">
+        <h3 class="m-0">Nuevo</h3>
+        <h3><b>TIPO DE TURNO</b></h3>
+        <label for="nombre">Nombre:</label>
+        <input class="form-control" [(ngModel)]="tipoTurno.nombre" type="text" id="nombre" name="nombre">
+        <br>
+        <label for="descripcion">Descripcion:</label>
+        <textarea name="descripcion" id="descripcion" class="form-control" [(ngModel)]="tipoTurno.descripcion" cols="30" rows="3"></textarea>
+        <br>
+        <!--
+
+        <h3>Datos</h3>
+        <label for="duracion">Duracion (en minutos):</label>
+        <input class="form-control" [(ngModel)]="tipoTurno.duracionEnMinutos" type="number" id="duracion" name="duracion">
+        <br>
+        <label for="precioEstimado">Precio Estimado:</label>
+        <input class="form-control" [(ngModel)]="tipoTurno.precioEstimado" type="number" id="precio" name="precio">
+        <br>
+        <label for="senia">Seña (opcional):</label>
+        <input class="form-control" [(ngModel)]="seniaMontoEnCtvos" type="number" id="senia" name="senia">
+        <br>
+        -->
+    </div>
+    <button class="btn btn-outline-light boton-primario-form-add w-100">Guardar</button>
+</form> 
